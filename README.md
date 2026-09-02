@@ -66,7 +66,45 @@
 
 # 
 ```
+Cek repo BotHub sekarang.
 
+Fondasi project sudah selesai dan build berhasil. Jangan menambahkan fitur baru dulu. Fokuskan pekerjaan sekarang pada deployment production ke Vercel.
+
+Lakukan langkah berikut:
+
+1. Audit ulang project dan konfigurasi Vercel.
+2. Pastikan endpoint `api/webhook.ts` benar-benar kompatibel dengan Vercel Functions.
+3. Pastikan arsitektur menggunakan webhook, bukan long polling.
+4. Pastikan routing webhook siap menangani banyak bot secara aman.
+5. Pastikan environment variables yang dibutuhkan sudah jelas:
+   - MANAGER_BOT_TOKEN
+   - WEBHOOK_BASE_URL
+   - ENCRYPTION_KEY
+   - DATABASE_URL atau konfigurasi database yang memang digunakan project
+6. Pastikan tidak ada secret/token yang hardcode di source code.
+7. Pastikan database connection aman untuk environment serverless.
+8. Jalankan:
+   - npm install
+   - lint
+   - typecheck
+   - test
+   - production build
+9. Perbaiki semua error yang ditemukan.
+10. Jika Vercel CLI tersedia dan sudah login, deploy ke Vercel.
+11. Jika belum login atau credential Vercel belum tersedia, jangan mengarang hasil deployment. Berhenti pada bagian tersebut dan jelaskan command yang harus saya jalankan.
+12. Setelah deployment berhasil, cek URL production dan pastikan endpoint webhook dapat diakses.
+13. Jangan memasang webhook Telegram menggunakan URL palsu.
+14. Jangan mengklaim Bot Manager atau File Sharing Bot sudah online sebelum webhook dan konfigurasi production benar-benar siap.
+
+Setelah selesai, laporkan secara singkat:
+- Build: PASS/FAIL
+- Test: PASS/FAIL
+- Vercel deployment: PASS/FAIL
+- Production URL
+- Environment variables yang masih harus saya isi
+- Langkah berikutnya untuk menghubungkan MANAGER_BOT ke Telegram
+
+Jangan mengubah arsitektur modular yang sudah dibuat dan jangan menambahkan fitur baru sebelum deployment dasar berhasil.
 ```
 # 
 ```
