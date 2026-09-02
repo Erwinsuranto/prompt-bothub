@@ -53,7 +53,47 @@
 ```
 # 
 ```
+Cek repo BotHub dan deployment Vercel yang sekarang.
 
+Fondasi dan routing sudah PASS. Sekarang fokus menghubungkan Manager Bot dengan Telegram menggunakan deployment Vercel yang sudah ada.
+
+Jangan menambahkan fitur baru dan jangan mengubah arsitektur yang sudah benar.
+
+Lakukan:
+
+1. Pastikan Manager Bot menggunakan `MANAGER_BOT_TOKEN`.
+2. Pastikan `WEBHOOK_BASE_URL` menggunakan URL production Vercel yang sebenarnya.
+3. Pastikan webhook Manager Bot diarahkan ke:
+
+   {WEBHOOK_BASE_URL}/manager
+
+4. Pastikan endpoint `/manager` menerima Telegram webhook update dengan benar.
+5. Pastikan handler Manager Bot dapat merespons `/start`.
+6. Pastikan validasi owner/admin tetap berjalan.
+7. Pastikan `ENCRYPTION_KEY` dan `ADMIN_IDS` digunakan sesuai konfigurasi project.
+8. Jangan menampilkan atau mencetak token bot maupun secret ke log.
+9. Jangan menggunakan long polling.
+10. Jangan menggunakan VPS sebagai server runtime BotHub.
+
+Jika environment variables belum tersedia di Vercel:
+- Jangan membuat nilai palsu.
+- Jelaskan tepat variable apa saja yang harus saya isi di Vercel.
+
+Jika environment variables sudah tersedia:
+- Verifikasi konfigurasi.
+- Pastikan webhook Manager Bot dapat didaftarkan.
+- Cek status webhook menggunakan Telegram Bot API tanpa membocorkan token.
+
+Setelah selesai laporkan:
+- Manager Bot endpoint: PASS/FAIL
+- `/manager`: PASS/FAIL
+- `/start`: PASS/FAIL
+- Webhook: PASS/FAIL
+- Environment variables: READY/NOT READY
+- Masalah yang ditemukan
+- Langkah berikutnya
+
+Jangan lanjut ke pembuatan File Sharing Bot sebelum Manager Bot berhasil menerima `/start`.
 ```
 # 
 ```
