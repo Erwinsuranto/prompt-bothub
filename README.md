@@ -45,6 +45,64 @@
 ```
 # 
 ```
+Cek repo BotHub dan perbaiki error deployment Vercel berikut:
+
+500: INTERNAL_SERVER_ERROR
+Code: FUNCTION_INVOCATION_FAILED
+
+Deployment URL:
+https://bothub-seven.vercel.app
+
+Jangan menambahkan fitur baru.
+
+Lakukan debugging berdasarkan implementasi repo saat ini:
+
+1. Periksa seluruh source code yang berkaitan dengan Vercel Function.
+2. Fokus terutama pada:
+   - api/webhook.ts
+   - src/webhook/
+   - src/manager/
+   - src/config/
+   - src/database/
+   - package.json
+   - vercel.json
+3. Periksa Vercel runtime compatibility.
+4. Cari kemungkinan crash saat module initialization/import.
+5. Periksa environment variable yang diakses saat function dijalankan.
+6. Pastikan environment variable yang belum diisi tidak menyebabkan function crash ketika endpoint dipanggil.
+7. Pastikan route `/` tetap dapat mengembalikan health response.
+8. Pastikan `/manager` dan `/webhook/{botId}` tidak crash hanya karena konfigurasi bot belum lengkap.
+9. Jangan memasukkan secret/token asli ke source code.
+10. Jangan menggunakan long polling.
+11. Jangan mengubah arsitektur modular.
+12. Jangan menganggap masalah selesai hanya karena build lokal berhasil.
+
+Jika tersedia, periksa Vercel deployment/runtime logs untuk menemukan error sebenarnya di balik `FUNCTION_INVOCATION_FAILED`.
+
+Setelah menemukan penyebab:
+- perbaiki root cause
+- jalankan lint
+- jalankan typecheck
+- jalankan test
+- jalankan production build
+- commit perubahan
+- push ke GitHub branch main
+
+Jangan melakukan deployment melalui VPS atau Vercel CLI.
+
+Karena deployment dilakukan melalui Vercel Web/Git integration, cukup push perbaikan ke GitHub agar Vercel membuat deployment baru.
+
+Setelah selesai laporkan:
+- root cause error
+- file yang diperbaiki
+- lint: PASS/FAIL
+- typecheck: PASS/FAIL
+- test: PASS/FAIL
+- build: PASS/FAIL
+- apakah commit sudah dipush ke GitHub
+- apakah deployment baru sudah dipicu Vercel
+
+Jangan mengklaim error sudah selesai sebelum root cause ditemukan dan diperbaiki.
 
 ```
 # 
