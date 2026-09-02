@@ -49,7 +49,43 @@
 ```
 # 
 ```
+Cek repo BotHub sekarang.
 
+Saya melihat repository GitHub BotHub hanya berisi README.md, sedangkan implementasi lengkap BotHub sudah ada di working repository/local project.
+
+Jangan membuat ulang project dan jangan mengubah fitur.
+
+Lakukan:
+
+1. Periksa `git status`.
+2. Pastikan semua source code BotHub yang sudah selesai memang ada di repository lokal.
+3. Pastikan file penting seperti:
+   - package.json
+   - tsconfig.json
+   - vercel.json jika digunakan
+   - src/
+   - api/
+   - tests/
+   - README.md
+   dan seluruh file project yang diperlukan ada.
+4. Periksa `.gitignore` dan pastikan file source penting tidak ikut ter-ignore.
+5. JANGAN pernah commit secret, bot token, database credential, `.env`, atau private key.
+6. Pastikan `.env` dan file secret masuk `.gitignore`.
+7. Jalankan git diff/status untuk memastikan tidak ada perubahan yang tidak diinginkan.
+8. Commit seluruh source code BotHub yang diperlukan dengan commit message yang jelas.
+9. Push commit tersebut ke repository GitHub BotHub pada branch `main`.
+10. Setelah push berhasil, verifikasi bahwa GitHub benar-benar menampilkan source code lengkap, bukan hanya README.md.
+11. Jangan melakukan deployment Vercel dulu.
+
+Setelah selesai laporkan:
+- jumlah file yang berhasil di-push
+- commit hash
+- branch
+- status push
+- apakah source code lengkap sudah terlihat di GitHub
+- apakah repo sekarang siap di-import melalui Vercel Web
+
+Jika remote GitHub atau authentication bermasalah, jangan mengarang hasil. Jelaskan error yang sebenarnya.
 ```
 # 
 ```
