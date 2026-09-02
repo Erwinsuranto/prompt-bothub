@@ -61,7 +61,35 @@
 ```
 # 
 ```
+Cek repo BotHub sekarang.
 
+Siapkan repository ini agar bisa langsung di-deploy melalui Vercel Web dengan cara Import Git Repository.
+
+Jangan melakukan deployment melalui VPS dan jangan menggunakan Vercel CLI.
+
+Lakukan audit dan pastikan:
+1. Project bisa di-build di environment Vercel.
+2. Semua konfigurasi Vercel yang diperlukan sudah benar.
+3. API/webhook endpoint kompatibel dengan Vercel Functions.
+4. Tidak menggunakan long polling.
+5. Tidak bergantung pada local filesystem sebagai persistent storage.
+6. Semua secret menggunakan environment variables.
+7. Buat atau perbaiki `vercel.json` hanya jika memang diperlukan.
+8. Pastikan `package.json`, build command, output, dan routing sudah sesuai.
+9. Jalankan lint, typecheck, test, dan production build.
+10. Perbaiki semua error yang ditemukan.
+
+Jangan memasang webhook Telegram dulu dan jangan menambahkan fitur baru.
+
+Tujuan akhir:
+Repository BotHub harus siap sehingga saya cukup membuka website Vercel, memilih Import Git Repository, memilih repo BotHub, mengisi Environment Variables, lalu klik Deploy.
+
+Setelah selesai, laporkan:
+- Build: PASS/FAIL
+- Test: PASS/FAIL
+- Vercel configuration: READY/NOT READY
+- Environment Variables yang harus saya isi di Vercel
+- Apakah repo sudah siap untuk tombol Deploy di Vercel Web
 ```
 
 # 
