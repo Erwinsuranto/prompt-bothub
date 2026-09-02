@@ -57,6 +57,31 @@
 ```
 # 
 ```
+Cek deployment Vercel BotHub yang baru saja berhasil.
+
+Jangan menambahkan fitur baru.
+
+Periksa deployment production dan pastikan:
+
+1. Identifikasi URL production Vercel yang sebenarnya.
+2. Cek route/API endpoint yang tersedia pada project.
+3. Pastikan endpoint webhook BotHub dapat diakses melalui Vercel.
+4. Jika `/` menghasilkan 404 tetapi endpoint API/webhook benar-benar tersedia, jangan menganggap deployment gagal.
+5. Pastikan `api/webhook.ts` ter-deploy sebagai Vercel Function.
+6. Periksa apakah ada masalah routing atau konfigurasi `vercel.json`.
+7. Pastikan build production tetap PASS.
+8. Jangan memasang webhook Telegram dulu.
+9. Jangan menggunakan token asli atau credential asli untuk testing.
+
+Di akhir berikan:
+- URL production
+- Root `/` status
+- Webhook endpoint status
+- Vercel Function status
+- Build status
+- Apakah BotHub sudah siap untuk konfigurasi environment variables dan webhook Telegram
+
+Jika ada masalah, perbaiki hanya masalah deployment/routing yang diperlukan.
 
 ```
 # 
