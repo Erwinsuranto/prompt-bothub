@@ -41,6 +41,59 @@
 ```
 # 
 ```
+Perbaiki konfigurasi webhook Manager Bot pada project bothub.
+
+Kondisi saat ini:
+- Repository: zenolambee/bothub
+- Deployment: https://bothub-seven.vercel.app
+- Environment Variables Vercel sudah tersedia:
+  - MANAGER_BOT_TOKEN
+  - WEBHOOK_BASE_URL
+  - ENCRYPTION_KEY
+  - ADMIN_IDS
+- Jangan meminta atau mencetak nilai secret.
+- Jangan hardcode token atau encryption key.
+- Jangan menggunakan token dari VPS.
+
+Masalah:
+src/manager/bot.ts sudah menggunakan grammY webhookCallback, tetapi api/webhook.ts hanya meneruskan request ke managerBotHandler jika path mengandung "/manager". Endpoint webhook Manager Bot harus menggunakan:
+https://bothub-seven.vercel.app/api/webhook/manager
+
+Tugas:
+1. Audit seluruh flow Manager Bot dan webhook.
+2. Pastikan endpoint GET / tetap mengembalikan:
+   {"status":"ok","service":"bothub"}
+3. Pastikan POST /api/webhook/manager diteruskan ke managerBotHandler dengan benar.
+4. Implementasikan mekanisme aman untuk otomatis mendaftarkan Telegram webhook menggunakan MANAGER_BOT_TOKEN dan WEBHOOK_BASE_URL dari process.env.
+5. Webhook target harus dibentuk sebagai:
+   ${WEBHOOK_BASE_URL}/api/webhook/manager
+   tanpa hardcode domain.
+6. Registrasi webhook harus terjadi otomatis saat deployment/initialization yang sesuai dengan arsitektur Vercel Serverless, tanpa membutuhkan token di VPS.
+7. Jangan membuat endpoint publik yang memungkinkan orang lain mengganti webhook tanpa autentikasi.
+8. Jangan log MANAGER_BOT_TOKEN, ENCRYPTION_KEY, atau nilai secret apa pun.
+9. Jika mekanisme otomatis membutuhkan perubahan build/deployment, implementasikan dengan cara yang kompatibel dengan Vercel.
+10. Pastikan tidak terjadi infinite loop atau registrasi webhook pada setiap request secara tidak perlu.
+11. Pertahankan command Manager Bot yang sudah ada:
+    /start
+    /help
+    /createbot
+    /mybots
+    /botstatus
+    /startbot
+    /stopbot
+    /deletebot
+12. Jangan merusak file-sharing bot atau routing bot lain.
+13. Tambahkan test untuk memastikan route /api/webhook/manager benar.
+14. Jalankan npm test dan npm run build. Perbaiki error jika ada.
+15. Commit perubahan ke branch main dan push ke origin/main.
+
+Setelah selesai, tampilkan hanya:
+- file yang diubah
+- hasil test
+- hasil build
+- commit hash
+
+Jangan pernah menampilkan nilai secret/environment variable.
 
 ```
 # 
